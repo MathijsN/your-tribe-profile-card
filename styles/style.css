@@ -21,6 +21,7 @@ body:has(.profile-card-example) {
   font-family: open sans;
   color: var(--primary-white);
   background-color: var(--background-black);
+  overflow: hidden;
 }
 
 article.profile-card-example {
@@ -138,7 +139,7 @@ button.profile-card-example-button svg:nth-of-type(2) {
 }
 
 /* 
-Motivation text
+Paragraphs
 */
 
 @keyframes typing {
