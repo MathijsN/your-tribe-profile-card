@@ -1,7 +1,8 @@
 :root {
   --primary-blue: #0171E3;
   --primary-white: #FFFFFF;
-  --background-grey: #1E1E1E;
+  --background-grey: #111111;
+  --background-black: #000000;
 }
 
 * {
@@ -19,6 +20,7 @@ body:has(.profile-card-example) {
   height: 100vh;
   font-family: open sans;
   color: var(--primary-white);
+  background-color: var(--background-black);
 }
 
 article.profile-card-example {
@@ -32,7 +34,6 @@ article.profile-card-example {
   min-width: 20em;
   border-radius: 1rem;
   background-color: var(--background-grey);
-  box-shadow: 0 0 20px 20px rgba(0,0,0,.1);
   transition: .25s;
   font-family: "Roboto", sans-serif;
 }
@@ -52,12 +53,12 @@ header.profile-card-example-header {
 
 }
 
-@keyframes wiggle {
-    0% { transform: rotate(0deg); }
-   25% { transform: rotate(10deg); }
-   50% { transform: rotate(0deg); }
-   75% { transform: rotate(-10deg); }
-  100% { transform: rotate(0deg); }
+@keyframes pressMe {
+    0% { transform: scale(1); }
+   80% { transform: scale(1); }
+   85% { transform: scale(1.1); }
+   95% { transform: scale(0.9); }
+  100% { transform: scale(1); }
 }
 
 button.profile-card-example-button {
@@ -69,10 +70,10 @@ button.profile-card-example-button {
   padding: .25rem;
   border: none;
   border-radius: 50%;
-  background: rgb(255, 255, 255);
+  background: var(--primary-white);
   transform: scale(.8);
   transition: .25s;
-  animation: wiggle 1.5s infinite;
+  animation: none;
 }
 button.profile-card-example-button:focus {
   outline: none;
@@ -83,20 +84,20 @@ button.profile-card-example-button svg {
   position: absolute;
   top: calc(1.25rem - 12px);
   left: calc(1.25rem - 12px);
-  stroke: #000000;
+  stroke: var(--background-grey);
   transition-delay: .25s;
 }
 
 button.profile-card-example-button:hover {
-  transform: scale(1.1);
   transition: .25s;
-  animation: none;
+  animation: pressMe 1.5s infinite;
+  cursor: pointer;
 }
 
 
 
 button.profile-card-example-button:focus svg {
-  stroke: rgb(0, 0, 0);
+  stroke: var(--background-grey);
 }
 button.profile-card-example-button svg:nth-of-type(2) {
   opacity: 0;
@@ -108,37 +109,24 @@ button.profile-card-example-button svg:nth-of-type(2) {
   top: 2rem;
   width: 10em;
   height: auto;
-  border: 5px solid #fff;
+  border: 5px solid var(--primary-white);
   border-radius: 10em;
-  box-shadow: 0 0 2px 2px rgba(0,0,0,.2);
+  box-shadow: 0 0 2px 2px var(--background-grey);
   transition: .25s .15s;
 }
 
 .profile-card-example-dl {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-    "html-dt css-dt js-dt"
-    "html-dd css-dd js-dd"
-    ;
-  justify-items: center;
+  grid-template-columns: 1fr 2fr;
+  justify-items: left;
   align-items: center;
-  width: 100%;
+  width: 60%;
   padding: 5rem 0 3rem;
-  text-align: center;
+  text-align: right;
 
   dt {
     margin-top: .5rem;
     font-weight: bold;
-    &:nth-of-type(1) {
-      grid-area: html-dt;
-    }
-    &:nth-of-type(2) {
-      grid-area: css-dt;
-    }
-    &:nth-of-type(3) {
-      grid-area: js-dt;
-    }
   }
 
   dd {
@@ -149,18 +137,59 @@ button.profile-card-example-button svg:nth-of-type(2) {
 }
 }
 
+/* 
+Motivation text
+*/
+
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
 .profile-card-example p {
   margin: 0;
 }
 
+dl + p {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(30, end) infinite;
+}
+
 .profile-card-example > p {
   width: 100%;
-  margin-top: 0;
-  padding: 3rem 2rem;
-  border-radius: 0 0 1rem 1rem;
+  margin: 3rem 2rem;
   text-align: center;
-
 }
+
+
+
+/* 
+Background blur
+ */
+
+@keyframes backgroundMovement {
+    0% { transform: translate(10rem, 20rem); }
+   25% { transform: translate(-10rem, 20rem); }
+   50% { transform: translate(-10rem, -20rem); }
+   75% { transform: translate(10rem, -20rem); }
+  100% { transform: translate(10rem, 20rem); }
+}
+
+.background-blur {
+  position: absolute;
+  width: 25rem;
+  height: 25rem;
+  border-radius: 100%;
+  background-color: var(--primary-blue);
+  z-index: -1;
+  filter: blur(15rem);
+  animation: backgroundMovement 10s infinite;
+}
+
+
+
 
 /* Deze styles zijn van toepassing als je op de knop klikt */
 body.is-expanded {
