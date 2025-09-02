@@ -1,3 +1,9 @@
+:root {
+  --primary-blue: #0171E3;
+  --primary-white: #FFFFFF;
+  --background-grey: #1E1E1E;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -12,7 +18,7 @@ body:has(.profile-card-example) {
   align-items: center;
   height: 100vh;
   font-family: open sans;
-  color: #000000;
+  color: var(--primary-white);
 }
 
 article.profile-card-example {
@@ -25,8 +31,7 @@ article.profile-card-example {
   max-width: 25em;
   min-width: 20em;
   border-radius: 1rem;
-  background: rgb(0,239,255);
-  background: linear-gradient(0deg, rgb(44, 97, 100) 40%, #81828d 100%);
+  background-color: var(--background-grey);
   box-shadow: 0 0 20px 20px rgba(0,0,0,.1);
   transition: .25s;
   font-family: "Roboto", sans-serif;
@@ -42,9 +47,17 @@ header.profile-card-example-header {
   /* Je kunt selectors nesten! */
   h1 {
     margin: 2rem 0 1rem;
-    color: rgb(17, 52, 54);
+    color: var(--primary-white);
   }
 
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+   25% { transform: rotate(10deg); }
+   50% { transform: rotate(0deg); }
+   75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
 }
 
 button.profile-card-example-button {
@@ -59,11 +72,13 @@ button.profile-card-example-button {
   background: rgb(255, 255, 255);
   transform: scale(.8);
   transition: .25s;
+  animation: wiggle 1.5s infinite;
 }
 button.profile-card-example-button:focus {
   outline: none;
-  background: #ffffff;
+  background: var(--primary-white);
 }
+
 button.profile-card-example-button svg {
   position: absolute;
   top: calc(1.25rem - 12px);
@@ -71,6 +86,15 @@ button.profile-card-example-button svg {
   stroke: #000000;
   transition-delay: .25s;
 }
+
+button.profile-card-example-button:hover {
+  transform: scale(1.1);
+  transition: .25s;
+  animation: none;
+}
+
+
+
 button.profile-card-example-button:focus svg {
   stroke: rgb(0, 0, 0);
 }
@@ -94,29 +118,23 @@ button.profile-card-example-button svg:nth-of-type(2) {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "html-dd css-dd js-dd"
     "html-dt css-dt js-dt"
+    "html-dd css-dd js-dd"
     ;
   justify-items: center;
-  align-items: start;
+  align-items: center;
   width: 100%;
-  margin-top: -3rem;
-  margin-bottom: 0;
   padding: 5rem 0 3rem;
   text-align: center;
-  background: rgb(255,255,255);
 
   dt {
-    margin-top: .25rem;
-    padding-top: .25rem;
-    border-top: 1px solid rgba(0,0,0,0.3);
+    margin-top: .5rem;
     font-weight: bold;
     &:nth-of-type(1) {
       grid-area: html-dt;
     }
     &:nth-of-type(2) {
       grid-area: css-dt;
-      transform: translateY(1rem);
     }
     &:nth-of-type(3) {
       grid-area: js-dt;
@@ -124,15 +142,12 @@ button.profile-card-example-button svg:nth-of-type(2) {
   }
 
   dd {
+    width: 100%;
     margin: 0;
-    padding-left: .3rem;
+    font-size: 0.75rem;
     transition: .25s .3s;
-    &:nth-of-type(2) {
-      transform: translateY(1rem);
-    }
-  }
 }
-
+}
 
 .profile-card-example p {
   margin: 0;
@@ -144,7 +159,7 @@ button.profile-card-example-button svg:nth-of-type(2) {
   padding: 3rem 2rem;
   border-radius: 0 0 1rem 1rem;
   text-align: center;
-  background: rgba(255,255,255, 0.5);
+
 }
 
 /* Deze styles zijn van toepassing als je op de knop klikt */
@@ -168,7 +183,7 @@ body.is-expanded .profile-card-example-button svg:nth-of-type(2) {
 }
 
 body.is-expanded .profile-card-example-dl dd {
-  font-size: 1.75em;
+  font-size: 1rem;
 }
 
 body.is-expanded .profile-card-example-img {
