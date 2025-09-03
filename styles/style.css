@@ -31,7 +31,6 @@ main {
   display: flex;
   background-color: var(--primary-white);
   border-radius: 1rem 1rem 0 0;
-  overflow: hidden;
 }
 
 img {
@@ -53,8 +52,7 @@ img {
 }
 
 
-
-p {
+.header-div-wrapper p{
   font-size: var(--p-font-size);
   padding: 0.3rem 0.7rem;
   border-radius: 1rem;
@@ -76,7 +74,7 @@ Display
   50% {opacity: 1;
       transform: translateY(0);}
   60% {opacity: 0;
-      transform: translateY(-5rem);}
+        transform: translateY(10rem);}
 }
 
 @keyframes disappear {
@@ -90,15 +88,19 @@ Display
       transform: translateY(5rem);}
 }
 
-.main-section {
-  text-align: center;
+/* .main-section {
+  text-align: right;
   position: relative;
+} */
+
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2rem;
 }
 
-h1 {
+.main-section p {
   font-size: 4rem;
-  margin: 0;
-  padding: 2rem 0;
 }
 
 .h1-span-1 {
