@@ -117,16 +117,34 @@ Display
   color: var(--primary-red);
 }
 
+@media (width < 400px) {
+  :root {
+    --p-font-size: 0.5rem;
+  }
+
+  .main-section p {
+  font-size: 3rem;
+}
+
+h1 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 0.5rem;
+}
+}
+
 /* 
 table
 */
 
 .section-dl {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   align-items: center;
-  width: 90%;
+  width:100%;
   padding: 2rem 0;
   text-align: left;
   gap: 0.2rem;
@@ -141,5 +159,11 @@ table
     width: 100%;
     margin: 0;
     text-align: right;
+    font-size: var(--p-font-size);
   }
+
+  img[src$=".svg"] {
+    width: 16px;
+  }
+
 }
