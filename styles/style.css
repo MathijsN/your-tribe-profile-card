@@ -1,9 +1,13 @@
 :root {
   --primary-blue: #0171E3;
   --primary-white: #FFFFFF;
-  --background-grey: #111111;
-  --background-black: #000000;
+  --primary-grey: #111111;
+  --secondary-grey: #dddddd;
+  --primary-black: #000000;
   --primary-yellow: #e1dda1;
+  --primary-green: #56AD62;
+  --primary-red: #FA0027;
+  --p-font-size: 0.75rem;
 }
 
 * {
@@ -14,7 +18,7 @@ body {
   max-width: 400px;
   margin: 5rem auto;
   font-family: sans-serif;
-  background-color: var(--background-grey);
+  background-color: var(--primary-grey);
 }
 
 main {
@@ -27,6 +31,7 @@ main {
   display: flex;
   background-color: var(--primary-white);
   border-radius: 1rem 1rem 0 0;
+  overflow: hidden;
 }
 
 img {
@@ -47,8 +52,14 @@ img {
   justify-content: space-between;
 }
 
+
+
 p {
-  display: inline;
+  font-size: var(--p-font-size);
+  padding: 0.3rem 0.7rem;
+  border-radius: 1rem;
+  color: var(--primary-black);
+  background-color: var(--secondary-grey);
 }
 
 
@@ -58,15 +69,26 @@ Display
 */
 
 @keyframes appear {
-    0% { opacity: 0; }
-  10% { opacity: 1;}
+  0% {transform: translateY(-10rem);
+  opacity: 0;}
+  5% { opacity: 1;
+      transform: translateY(0);}
+  50% {opacity: 1;
+      transform: translateY(0);}
+  60% {opacity: 0;
+      transform: translateY(-5rem);}
 }
 
 @keyframes disappear {
-    0% { opacity: 1; }
-  60% { opacity: 0;}
+  0% {transform: translateY(-10rem);
+  opacity: 0;}
+  5% { opacity: 1;
+      transform: translateY(0);}
+  50% {opacity: 1;
+      transform: translateY(0);}
+  60% {opacity: 0;
+      transform: translateY(5rem);}
 }
-
 
 .main-section {
   text-align: center;
@@ -79,14 +101,18 @@ h1 {
   padding: 2rem 0;
 }
 
-h1 span {
-  text-decoration: line-through;
-}
-
 .h1-span-1 {
   position: absolute;  
   opacity: 0;
-  animation: appear 10s infinite;
+  animation: appear 5s infinite;
+  color: var(--primary-green);
+}
+
+.h1-span-2 {
+  opacity: 0;
+  text-decoration: line-through;
+  animation: disappear 5s 2.5s infinite;
+  color: var(--primary-red);
 }
 
 /* 
@@ -106,6 +132,7 @@ table
 
   dt {
   justify-self: start;
+  font-size: var(--p-font-size);
   }
 
   dd {
