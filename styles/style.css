@@ -103,14 +103,14 @@ Display
   font-size: 4rem;
 }
 
-.h1-span-1 {
-  position: absolute;  
+.mainsection-p-1 {
+  position: absolute; 
   opacity: 0;
   animation: appear 5s infinite;
   color: var(--primary-green);
 }
 
-.h1-span-2 {
+.mainsection-p-2 {
   opacity: 0;
   text-decoration: line-through;
   animation: disappear 5s 2.5s infinite;
