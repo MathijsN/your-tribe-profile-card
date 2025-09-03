@@ -3,6 +3,7 @@
   --primary-white: #FFFFFF;
   --background-grey: #111111;
   --background-black: #000000;
+  --primary-yellow: #e1dda1;
 }
 
 * {
@@ -154,7 +155,6 @@ Paragraphs
 dl + p {
   overflow: hidden;
   white-space: nowrap;
-  margin: 0 auto;
   animation: typing 3.5s steps(30, end) infinite;
 }
 
@@ -186,7 +186,12 @@ Background blur
   background-color: var(--primary-blue);
   z-index: -1;
   filter: blur(15rem);
-  animation: backgroundMovement 10s infinite;
+  animation: backgroundMovement 15s infinite;
+}
+
+.bb-color-2 {
+  background-color: var(--primary-yellow);
+  animation: backgroundMovement 15s 5s infinite;
 }
 
 
