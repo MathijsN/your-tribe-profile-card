@@ -1,4 +1,5 @@
 :root {
+  /* Tokens */
   --primary-blue: #0171E3;
   --primary-white: #FFFFFF;
   --primary-grey: #111111;
@@ -9,6 +10,7 @@
   --primary-red: #FA0027;
   --p-font-size: 0.75rem;
 
+  /* Ge-nest media query moet omgezet worden naar min-width wegens mobile first */
    @media (max-width: 450px) {
     h1 {
       font-size: 1.2rem;
@@ -72,6 +74,8 @@ img {
 Display
 */
 
+
+
 @keyframes appear {
   0% {transform: translateY(-10rem);
   opacity: 0;}
@@ -93,11 +97,6 @@ Display
   60% {opacity: 0;
       transform: translateY(5rem);}
 }
-
-/* .main-section {
-  text-align: right;
-  position: relative;
-} */
 
 .main-section {
   display: flex;
@@ -141,7 +140,6 @@ table
   width:100%;
   padding: 2rem 0;
   text-align: left;
-  gap: 0.2rem;
   margin: 0 1rem;
 
   dt {
