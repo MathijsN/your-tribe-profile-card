@@ -8,6 +8,12 @@
   --primary-green: #56AD62;
   --primary-red: #FA0027;
   --p-font-size: 0.75rem;
+
+   @media (max-width: 450px) {
+    h1 {
+      font-size: 1.2rem;
+    }
+   }
 }
 
 * {
